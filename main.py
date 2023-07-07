@@ -98,6 +98,8 @@ executor.start_polling(dp)
 
 from aiogram import Bot,Dispatcher,executor,types
 from aiogram.types.web_app_info import WebAppInfo
+import json
+
 bot = Bot("6317035643:AAHvhjqengVgEuZM923qNnZMcZoqQlJ1Lhk")
 dp = Dispatcher(bot)
 
@@ -112,6 +114,7 @@ async def start(message: types.Message):
 
 async def web_app(message: types.Message):
     await message.answer(message.web_app_data.data)
+    await message.answer(f'Name : {res["name"]}. Email: {res["email"]}. Phone: {res["phone"]}')
 
 executor.start_polling(dp)
 
