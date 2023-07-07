@@ -104,8 +104,8 @@ dp = Dispatcher(bot)
 @dp.message_handler(commands = ['start'])
 
 async def start(message: types.Message):
-    markup = types.ReplyKeyboardMarkup()
-    markup.add(types.KeyboardButton("Відкрити веб-сторінку" , web_app = WebAppInfo(url = "https://github.com/BukinDmytro/WebAppTelegram.git")))
+    markup = types.InlineKeyboardMarkup()
+    markup.add(types.InlineKeyboardButton("Відкрити веб-сторінку" , web_app = WebAppInfo(url = "https://github.com/BukinDmytro/WebAppTelegram.git")))
     await message.answer("Привіт !", reply_markup = markup)
 
 
