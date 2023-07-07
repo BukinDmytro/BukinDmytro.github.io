@@ -108,6 +108,10 @@ async def start(message: types.Message):
     markup.add(types.KeyboardButton("Відкрити веб-сторінку" , web_app = WebAppInfo(url = "https://github.com/BukinDmytro/WebAppTelegram.git")))
     await message.answer("Привіт !", reply_markup = markup)
 
+@dp.message_handler(content_types = ['web_app_data'])
+
+async def web_app(message: types.Message):
+    await message.answer(message.web_app_data.data)
 
 executor.start_polling(dp)
 
